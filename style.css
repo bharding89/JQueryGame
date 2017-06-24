@@ -1,0 +1,86 @@
+#nav {
+	font-family: 'Oswald', sans-serif;
+    background-color: grey;
+    opacity: 0.75; /* opacity [0-1] */
+
+    color: white;
+}
+.nav-item {
+	font-size: 24pt;
+	font-weight: bold;
+	color: white;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+
+}
+body {
+	font-family: 'Oswald', sans-serif;
+}
+
+.char {
+	opacity: 0.75;
+	 margin:0px auto;
+    width:100%;
+    background-color:white;
+    border:2px 
+    padding:10px;
+    position: relative;
+    z-index: 10;
+    border-radius: 25px;
+    width: 80%;
+    height: 80%;
+}
+.textcol {
+   font-size: 15pt;
+   text-align: center;
+   color: white;
+	text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+  
+}
+.enemy {
+	border-style: solid;
+	border:2px ;
+	border-color: red;
+}
+.points {
+	 background-color: grey;
+	 height: 200px;
+	 padding:10px;
+	 opacity: .9;
+	 border:4px ;
+	 border-style: solid;
+	 border-radius: 25px;
+	 
+}
+#attack{
+	font-family: 'Oswald', sans-serif;
+	background-color: black;
+  padding-right: 15px;
+  opacity: .8;
+  
+  margin-top:25px;
+  width:80px;height:150px;
+  
+}
+.enemy:hover{
+     background-color: red;
+}
+.hero:hover{
+     background-color: blue;
+}
+
+.centervs {
+	padding-top: 75px;
+
+}
+#results {
+	overflow-y:auto
+
+}

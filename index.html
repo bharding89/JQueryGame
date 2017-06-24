@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars!</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="style.css">
+ 
+    <!-- Added link to the jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+<nav id="nav" class="navbar navbar-toggleable-md navbar-dark bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#"><img src="assets/TCWlogo.png" style="width: 85%; height: 85%""></a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+     <h3> Star Wars RPG </h3>
+    </span>
+  </div>
+</nav>
+</head>
+
+<body background="assets/clone_armyBG.jpg">
+<br>
+<div class="container" >
+
+  <div class="row" >
+    <div class="col-md-2 textcol" ><img class="char hero" src="assets/Anakin.png" id="anakin">Anakin Skywalker</div>
+    <div class="col-md-2 textcol" ><img class="char hero" id="kenobi" src="assets/Obi.png"><br/>Obi-Wan Kenobi</div>
+    <div class="col-md-2 textcol"  ><img class="char hero" id="ahsoka" src="assets/Ahsoka.png">Ahsoka Tano</div>
+
+ 	<div class="col-md-2 textcol"><img class="char enemy" id="ventress" src="assets/Ventress.png">Asajj Ventress</div>
+  <div class="col-md-2 textcol"><img class="char enemy" id="grievous" src="assets/Grievous.png">General Grievous</div>
+  <div class="col-md-2 textcol"><img class="char enemy" id="dooku" src="assets/Dooku.png">Count Dooku</div>
+  </div>
+  </div>
+  <br>
+  <div class="container" >
+  	<div class="row">
+  	 	<div class="col-md-2 points" id="hero">Your Charcter
+  	 		<img class="char" src="assets/Anakin.png" id="anakin2">
+			<img class="char" src="assets/Obi.png" id="kenobi2">
+			<img class="char" src="assets/Ahsoka.png" id="ahsoka2">
+  	 		</div>
+
+	 	<div class="col-md-1 centervs" ><center><h2>VS</h2></center></div>
+	 	<div class="col-md-2 points" id="enemy">Enemy
+	 	<img class="char" src="assets/Ventress.png" id="ventress2">
+			<img class="char" src="assets/Grievous.png" id="grievous2">
+			<img class="char" src="assets/Dooku.png" id="dooku2">
+			</div>
+	 	<div class="col-md-1"><button type="button" class="btn btn-link" id="attack">Attack</button></div>
+	 	<div class="col-md-4 offset-1 points" id="results"> <u>Results</u></div> 
+  	</div>
+  </div>
+<script>
+	
+    $("#anakin2").hide();
+	$("#kenobi2").hide();
+	$("#ahsoka2").hide();
+	$("#ventress2").hide();
+	$("#grievous2").hide();
+	$("#dooku2").hide();
+
+	 	$("#anakin").on("click", (function() {
+	 		$("#anakin").hide();
+	 		$("#anakin2").show();
+	
+		}));
+	 	$("#kenobi").on("click", (function() {
+	 		$("#kenobi").hide();
+	 		$("#kenobi2").show();
+	
+		}));
+	 	$("#ahsoka").on("click", (function() {
+	 		$("#ahsoka").hide();
+	 		$("#ahsoka2").show(); 		
+	 	}));
+
+	 	$("#ventress").on("click", (function() {
+	 		$("#ventress").hide();
+	 		$("#ventress2").show();
+	
+		}));
+	 	$("#grievous").on("click", (function() {
+	 		$("#grievous").hide();
+	 		$("#grievous2").show();
+	
+		}));
+	 	$("#dooku").on("click", (function() {
+	 		$("#dooku").hide();
+	 		$("#dooku2").show(); 		
+	 	}));
+</script>
+<script>
+
+//For #hero where show = true
+//	apply heroStats variable 
+//For #enemy where show = true
+//	apply enemyStats variable
+//If hero div and enemy div have items shown lock movement
+//		load hero and enemy stats
+var heroStats = 100
+var enemyStats = 100
+// on click attack button, run random number 1-20 for both charcters, 
+// subtract from stats, until < 0. 
+$(document).ready(() => {
+	
+		$("#attack").click(function() {
+		var enhits = Math.floor(Math.random() * 25) + 1;
+		heroStats = (heroStats - enhits);
+		//append enemyStats to results div
+		$("#results").append("<br />" + "Enemy Hit Points = " + enemyStats)});
+
+		$("#attack").click(function() {
+		var herohits = Math.floor(Math.random() * 25) + 1;
+		enemyStats = (enemyStats - herohits);
+		//append heroStats to results div
+		$("#results").append(" " + "Hero Hit Points = " + heroStats)});
+
+		
+	});		
+	
+	If (heroStats <= 0) {
+	$(document).alert("You Lose, click to restart" );
+}
+		//			run reset function()
+//		}
+//		If enemyStats <= 0 {
+//		document.alert "You Win, choose a new opponent";
+		//		clear attack function and results div, hide previous opponent from top div 	}
+
+		
+
+
+	</script>
+
+
+</body>
+
+</html>
